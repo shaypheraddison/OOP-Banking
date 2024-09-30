@@ -1,5 +1,5 @@
 #simple banking app for cli
-
+#! /usr/bin/python
 class BankAccount:
     def __init__(self, balance, allow_both_transactions):
         self.balance = balance
@@ -14,7 +14,11 @@ class Checking(BankAccount):
 
     def remove_from_balance(self):
         withdraw = int(input("How much would you like to take out of your balance? \n$"))
-        self.balance -= withdraw
+        if withdraw > self.balance:
+            print("There is not enough money to withdraw, please deposit more first.")
+        else:
+            self.balance -= withdraw
+        
         return self.balance
         
     def view_balance(self):

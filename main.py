@@ -41,9 +41,10 @@ class Saving(BankAccount):
             return self.balance
         else:
             new_balance = (years_open * Saving.interest_rate) * self.balance
+            self.balance = new_balance
             print(f"Interest applied to account! New Savings balance is: {new_balance:.2f}")
 
-        return new_balance
+        return self.balance
     
     
 while True: 

@@ -7,7 +7,7 @@ class BankAccount:
     def add_to_balance(self):
         deposit = int(input("How much money would you like to deposit? $"))
         self.balance += deposit
-        print(f"${deposit} has been added to your balance. New balance is {self.balance}")
+        print(f"${deposit} has been added to your balance. New balance is ${self.balance}")
         return self.balance
 
     def view_balance(self):
@@ -21,11 +21,12 @@ class Checking(BankAccount):
 
     def remove_from_balance(self):
         withdraw = int(input("How much would you like to take out of your balance? $"))
-        if withdraw > self.balance and self.has_overdraft_protection == False:
+        if withdraw > self.balance and self.has_overdraft_protection == False or self.has_overdraft_protection == True:
             print("There is not enough money to withdraw, please deposit more first. Don't forget to sign up for Overdraft Protection too!")
         else:
             self.balance -= withdraw
             print(f"${withdraw} has been removed from your balance.")
+            print(f"New balance is ${self.balance}")
 
         return self.balance
 
@@ -63,7 +64,7 @@ while True:
             elif choice_1 == 2:
                 checking.add_to_balance()
             elif choice_1 == 3:
-                checking.remove_from_balance(True)
+                checking.remove_from_balance()
             elif choice_1 == 4:
                 print("Closing out of app now. Thank you!")
                 break

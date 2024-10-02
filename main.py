@@ -1,6 +1,5 @@
 #simple banking app for cli
 #! /usr/bin/python
-from bank_account import BankAccount
 from checking import Checking
 from saving import Saving
     

@@ -68,5 +68,26 @@ while True:
                 break
             else:
                 print("Please select a correct option.")
+    
+    if account_type == 2:
+        starting_balance = int(input("How much will your starting balance be? $"))
+        saving = Saving(starting_balance)
 
+        while True:
+            print("1. Check Balance \n2. Deposit \n3. Exit")
+            choice_2 = int(input("Please select an option: "))
+            if choice_2 == 1:
+                saving.view_balance()
+            elif choice_2 == 2:
+                saving.add_to_balance()
+                saving.apply_interest()
+            elif choice_2 == 3:
+                print("Closing out of app. Thank you!")
+                break
+            else:
+                print("Please select a correct option.")
+
+    if account_type == 3:
+        print("Thank you for visiting the bank today!")
+        break
 
